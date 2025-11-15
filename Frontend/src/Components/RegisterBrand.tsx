@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card.tsx"
+import { useNavigate } from "react-router"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { Button } from "../components/ui/button"
@@ -7,6 +8,7 @@ import { useApi } from "../Utlity/useApi.ts"
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function RegisterBrand() {
+  const navigate = useNavigate()
   const api = useApi()
   const [form, setForm] = useState({
     brandName: "",
@@ -47,6 +49,8 @@ export default function RegisterBrand() {
       }
       const res = await api.post("/brand/create", payload)
       toast.success("Brand Register Succesfully")
+      navigate('/dashboard')
+
     } catch (err) {
       console.log(err)
       toast.error("Failed To Register Brand")

@@ -13,7 +13,9 @@ if (!ClerkKey) {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
 
-    <ClerkProvider publishableKey={ClerkKey}>
+    <ClerkProvider publishableKey={ClerkKey}
+
+    >
       <App />
 
     </ClerkProvider>

@@ -1,10 +1,13 @@
 import db from "../Database/db";
 import { brands, brandKeywords } from "../Database/schema";
 import { Response } from "express";
-const CreateBrand = async (req: any, res: Response) => {
-  try {
-    const userId = req.auth.userId;
+const RegisterBrand = async (req: any, res: Response) => {
+  const userId = req.auth?.userId
+  if (!userId) {
 
+    return res.status(400).json({ error: "User is unauthorized" });
+  }
+  try {
     const {
       brandName,
       website,
@@ -59,5 +62,5 @@ const CreateBrand = async (req: any, res: Response) => {
 
 
 
-export default CreateBrand;
+export default RegisterBrand;
 
