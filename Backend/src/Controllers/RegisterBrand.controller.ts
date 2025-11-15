@@ -23,6 +23,7 @@ const CreateBrand = async (req: any, res: Response) => {
         .status(400)
         .json({ error: "At least one keyword is required" });
 
+
     // INSERT BRAND DATA
     const result = await db
       .insert(brands)
@@ -55,6 +56,8 @@ const CreateBrand = async (req: any, res: Response) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
+
 
 export default CreateBrand;
 
