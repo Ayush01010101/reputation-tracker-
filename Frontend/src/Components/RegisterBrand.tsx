@@ -49,7 +49,8 @@ export default function RegisterBrand() {
       }
       const res = await api.post("/brand/create", payload)
       toast.success("Brand Register Succesfully")
-      navigate('/dashboard')
+      await setTimeout(() => { }, 1000)
+      navigate('/')
 
     } catch (err) {
       console.log(err)

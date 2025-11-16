@@ -4,7 +4,6 @@ import { Response } from "express";
 const RegisterBrand = async (req: any, res: Response) => {
   const userId = req.auth?.userId
   if (!userId) {
-
     return res.status(400).json({ error: "User is unauthorized" });
   }
   try {
